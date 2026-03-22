@@ -3,242 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About ARIS | Engineering Africa's Future</title>
+    <title>ARIS | Apex Robotics & Intelligence Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        :root { --navy: #0A1A33; --royal: #1F4FD8; --gold: hsl(239, 84%, 26%); }
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; color: #0A1A33; }
-        h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+        body { font-family: 'Inter', sans-serif; background-color: #F7F9FC; color: #0F172A; scroll-behavior: smooth; }
+        
+        .gradient-accent { background: linear-gradient(135deg, #1F4FD8 0%, #01172b 100%); }
 
-        /* LOGO & NAVIGATION */
+        /* LOGO BOUNDING BOX */
         .logo-bounding {
-            background: white; padding: 20px 30px; border-radius: 0 0 25px 25px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; border-top: none;
-            transition: all 0.4s ease; display: flex; align-items: center; gap: 20px; z-index: 100;
+            background: white;
+            padding: 10px 24px;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border: 1px solid #E5E7EB;
+            border-top: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 60;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .logo-img { height: 100px; width: auto; object-fit: contain; }
-        .nav-scrolled .logo-bounding { padding: 10px 20px; }
-        .nav-scrolled .logo-img { height: 60px; }
+        
+        .logo-bounding:hover { 
+            transform: translateY(2px) scale(1.02);
+        }
 
-        /* TEAM & PRODUCT CARDS */
-        .card-shimmer {
-            background: white; border: 1px solid #F1F5F9; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .card-shimmer:hover { 
-            transform: translateY(-8px); border-color: #1F4FD8; 
-            box-shadow: 0 25px 50px -12px rgba(10, 26, 51, 0.1);
+        .logo-img { height: 80px; width: auto; object-fit: contain; }
+
+        @media (max-width: 768px) {
+            .logo-img { height: 45px; }
+            .logo-bounding { padding: 8px 15px; }
         }
 
-        /* STAT COUNTER STYLE */
-        .stat-line { height: 2px; width: 0; background: #C9A24D; transition: width 1.5s ease-out; }
-        .group:hover .stat-line { width: 100%; }
+        /* Hero Slideshow */
+        .slide {
+            position: absolute; inset: 0; opacity: 0;
+            transition: opacity 1.5s ease-in-out, transform 10s linear;
+            transform: scale(1.1);
+        }
+        .slide.active { opacity: 0.4; transform: scale(1); }
+        .hero-overlay { background: linear-gradient(to right, #0A1A33 30%, rgba(10, 26, 51, 0.4) 100%); }
+
+        /* Mobile Menu State */
+        #mobile-menu.hidden { display: none; }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-24">
-            <div class="logo-bounding self-start">
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center h-20">
+            
+            <a href="index.html" class="logo-bounding self-start">
                 <img src="AIRS_LOGO.png" alt="ARIS Logo" class="logo-img">
-                <div class="hidden md:block border-l-2 border-slate-100 pl-4 text-[#0A1A33]">
-                    <span class="block text-xl font-bold tracking-tighter">ABOUT US </span>
-                    <span class="text-[9px] uppercase tracking-[0.4em] font-bold text-[#0A1A33]">What We Do</span>
+                <div class="hidden md:block border-l border-gray-200 pl-3 text-left">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600 block leading-tight">Apex Robotics &</span>
+                    <span class="text-[9px] uppercase tracking-tighter text-slate-400">Intelligence Solutions</span>
                 </div>
+            </a>
+
+            <div class="hidden lg:flex space-x-8 text-[11px] font-bold uppercase tracking-widest text-slate-600">
+                <a href="about.html" class="hover:text-blue-600 transition">About</a>
+                <a href="stem.html" class="hover:text-blue-600 transition">ROBOSTEM</a>
+                <a href="solutions.html" class="hover:text-blue-600 transition">Solutions</a>
+                <a href="#investors" class="hover:text-[#C9A24D] transition">Investors</a>
             </div>
-            <div class="hidden lg:flex space-x-10 text-[11px] font-bold uppercase tracking-widest text-white nav-text">
-                <a href="home.html" class="hover:text-[#7c6bfa]">Home</a>
-                <a href="stem.html" class="hover:text-[#7c6bfa]">RoboStem</a>
-                <a href="solutions.html" class="hover:text-[#7c6bfa]">solutions</a>
-                <a href="investor.html" class="hover:text-[#7c6bfa]">Investors</a>
+            
+            <div class="flex items-center gap-3">
+                <a href="#contact" class="gradient-accent text-white px-4 py-2.5 rounded font-bold text-[10px] uppercase tracking-widest transition-all shadow-lg hover:shadow-xl">
+                    <span class="hidden sm:inline">Partner With Us</span>
+                    <span class="sm:hidden">Partner</span>
+                </a>
+
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-md transition-colors">
+                    <i id="menu-icon" data-lucide="menu"></i>
+                </button>
             </div>
-            <a href="#contact" class="bg-[#1F4FD8] text-white px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-xl hover:bg-[#0A1A33] transition-all">Partner With Us</a>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 absolute w-full top-20 left-0 shadow-2xl z-40">
+            <div class="flex flex-col p-8 space-y-6 text-[12px] font-bold uppercase tracking-[0.2em] text-slate-700">
+                <a href="about.html" class="hover:text-blue-600">About</a>
+                <a href="stem.html" class="hover:text-blue-600">ROBOSTEM</a>
+                <a href="solutions.html" class="hover:text-blue-600">Solutions</a>
+                <a href="#investors" class="hover:text-blue-600">Investors</a>
+            </div>
         </div>
     </nav>
 
-    <header class="relative pt-48 pb-32 bg-[#0A1A33] text-white overflow-hidden">
-        <div class="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
-            <svg viewBox="0 0 100 100" class="w-full h-full stroke-current text-white"><circle cx="50" cy="50" r="40" fill="none" stroke-width="0.5" stroke-dasharray="2 2" /></svg>
+    <header class="relative h-[90vh] flex items-center overflow-hidden bg-[#0A1A33]">
+        <div id="slideshow">
+            <div class="slide active bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2000');"></div>
+            <div class="slide bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=2000');"></div>
         </div>
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <h1 class="text-4xl lg:text-7xl font-bold mb-8 leading-tight">
-                Engineering <br> <span class="text-[#2a30f5]">African Solutions.</span>
-            </h1>
-            <p class="text-blue-100/60 text-xl max-w-2xl leading-relaxed font-light">
-                Apex Robotics & Intelligence Solutions (ARIS) is an engineering-driven organization focused on robotics, STEM education, and intelligent systems, delivering practical, hands-on solutions for Africa.
-            </p>
+        <div class="absolute inset-0 hero-overlay"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-white">
+            <div class="lg:w-3/5">
+                <div class="inline-flex items-center gap-2 mb-6 px-3 py-1 rounded bg-blue-500/10 border border-blue-400/30 text-blue-400 text-[10px] font-bold uppercase tracking-[0.3em]">
+                    Practical Intelligence for Africa
+                </div>
+                <h1 class="text-4xl lg:text-7xl font-bold leading-[1.1] mb-6">
+                    Engineering <span class="text-blue-400">Excellence.</span><br>Local Innovation.
+                </h1>
+                <p class="text-lg lg:text-xl text-slate-300 mb-10 leading-relaxed font-light">
+                    ARIS designs and deploys intelligent systems—from industrial building automation to hands-on robotics training.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#engineering" class="gradient-accent px-8 py-4 rounded font-bold uppercase tracking-widest text-[11px] shadow-2xl transition hover:-translate-y-1">View Engineering Solutions</a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-24 items-center">
-                <div>
-                    <h2 class="text-[#1F4FD8] font-bold text-sm uppercase tracking-[0.5em] mb-4">Our Creation Statement</h2>
-                    <h3 class="text-4xl font-bold mb-8">Moving From Theory to Creation.</h3>
-                    <p class="text-slate-600 mb-6 leading-relaxed">
-                        ARIS was born from a critical gap in African education: the lack of practical exposure. We saw students mastering formulas but struggling to build a simple circuit.
-                    </p>
-                    <p class="text-slate-600 mb-8 leading-relaxed">
-                        We exist to bridge that gap. We are building a world where African engineers don't just consume technology—they design it, solder it, and program it to solve local challenges.
-                    </p>
-                    <div class="grid grid-cols-2 gap-8">
-                        <div class="space-y-2">
-                            <h4 class="font-bold">Engineering Training</h4>
-                            <p class="text-xs text-slate-400">Project-based mentorship for aspiring robotics leads.</p>
-                        </div>
-                        <div class="space-y-2">
-                            <h4 class="font-bold">Smart Systems</h4>
-                            <p class="text-xs text-slate-400">Developing locally relevant IoT and embedded hardware.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="space-y-4">
-                        <img src="g5.jpg" class="rounded-3xl shadow-xl w-full" alt="Engineering">
-                        <div class="bg-[#2a30f5] p-8 rounded-3xl text-white">
-                            <i data-lucide="zap" class="mb-4"></i>
-                            <p class="text-sm font-bold uppercase tracking-widest">Hands-on Focus</p>
-                        </div>
-                    </div>
-                    <div class="pt-12 space-y-4">
-                        <div class="bg-[#0A1A33] p-8 rounded-3xl text-white">
-                            <i data-lucide="shield-check" class="mb-4"></i>
-                            <p class="text-sm font-bold uppercase tracking-widest">Professional Integrity</p>
-                        </div>
-                        <img src="g6.PNG" class="rounded-3xl shadow-xl w-full" alt="Robotics Lab">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="mission" class="py-24 bg-[#F7F9FC]">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <div class="w-20 h-1 bg-[#1118f0] mx-auto mb-10"></div>
-            <h2 class="text-3xl lg:text-5xl font-bold leading-tight italic text-[#0A1A33]">
-                "To democratize engineering education and build intelligent systems that solve real local problems."
-            </h2>
-        </div>
-    </section>
-
-    <section id="impact" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-12 text-center">
-                <div class="group">
-                    <h3 class="text-5xl font-bold text-[#0A1A33] mb-2">15+</h3>
-                    <p class="text-[10px] font-bold uppercase tracking-widest text-[#1F4FD8] mb-4">Schools Reached</p>
-                    <div class="stat-line mx-auto"></div>
-                </div>
-                <div class="group">
-                    <h3 class="text-5xl font-bold text-[#0A1A33] mb-2">2k+</h3>
-                    <p class="text-[10px] font-bold uppercase tracking-widest text-[#1F4FD8] mb-4">Students Trained</p>
-                    <div class="stat-line mx-auto"></div>
-                </div>
-                <div class="group">
-                    <h3 class="text-5xl font-bold text-[#0A1A33] mb-2">45</h3>
-                    <p class="text-[10px] font-bold uppercase tracking-widest text-[#1F4FD8] mb-4">Workshops Hosted</p>
-                    <div class="stat-line mx-auto"></div>
-                </div>
-                <div class="group">
-                    <h3 class="text-5xl font-bold text-[#0A1A33] mb-2">12</h3>
-                    <p class="text-[10px] font-bold uppercase tracking-widest text-[#1F4FD8] mb-4">Prototypes Built</p>
-                    <div class="stat-line mx-auto"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-[#0A1A33]">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-white text-3xl font-bold mb-16">In Our Pipeline</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white/5 border border-white/10 p-10 rounded-[40px] text-white group">
-                    <span class="text-[#C9A24D] text-[9px] font-bold uppercase tracking-widest px-3 py-1 border border-[#C9A24D] rounded-full">In Use</span>
-                    <h4 class="text-2xl font-bold mt-6 mb-4">RoboBuild Series</h4>
-                    <p class="text-blue-100/40 text-sm">Proprietary robotics kits designed for African classroom durability and reuse.</p>
-                </div>
-                <div class="bg-white/5 border border-white/10 p-10 rounded-[40px] text-white group border-l-[#1F4FD8] border-l-4">
-                    <span class="text-blue-400 text-[9px] font-bold uppercase tracking-widest px-3 py-1 border border-blue-400 rounded-full">Prototype</span>
-                    <h4 class="text-2xl font-bold mt-6 mb-4">Smart Home Tech </h4>
-                    <p class="text-blue-100/40 text-sm">IoT based sensor network for Home automation.</p>
-                </div>
-                <div class="bg-white/5 border border-white/10 p-10 rounded-[40px] text-white group">
-                    <span class="text-slate-400 text-[9px] font-bold uppercase tracking-widest px-3 py-1 border border-slate-400 rounded-full">Testing</span>
-                    <h4 class="text-2xl font-bold mt-6 mb-4">ARIS-OS Hub</h4>
-                    <p class="text-blue-100/40 text-sm">An integrated learning management system for hardware-coding synchronization.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="team" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-16 text-center">The Minds Behind ARIS</h2>
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="card-shimmer rounded-[40px] p-8">
-                    <div class="aspect-square rounded-3xl bg-slate-100 mb-6 overflow-hidden">
-                        <img src="AIRS_LOGO.png" class="w-full h-full object-cover">
-                    </div>
-                    <h4 class="text-xl font-bold">Eugene Affoh Gyampoh</h4>
-                    <p class="text-[#1F4FD8] text-xs font-bold uppercase tracking-widest mb-4">Founder & Lead Engineer</p>
-                    <p class="text-slate-500 text-sm leading-relaxed">Oversees program design, robotics development, and overall engineering strategy.</p>
-                </div>
-                <div class="card-shimmer rounded-[40px] p-8">
-                    <div class="aspect-square rounded-3xl bg-slate-100 mb-6 overflow-hidden">
-                        <img src="AIRS_LOGO.png" class="w-full h-full object-cover">
-                    </div>
-                    <h4 class="text-xl font-bold">Name</h4>
-                    <p class="text-[#1F4FD8] text-xs font-bold uppercase tracking-widest mb-4">Position</p>
-                    <p class="text-slate-500 text-sm leading-relaxed">Expert in PCB routing and logic design for the RoboBuild kit series.</p>
-                </div>
-                <div class="card-shimmer rounded-[40px] p-8">
-                    <div class="aspect-square rounded-3xl bg-slate-100 mb-6 overflow-hidden">
-                        <img src="AIRS_LOGO.png" class="w-full h-full object-cover">
-                    </div>
-                    <h4 class="text-xl font-bold">Name</h4>
-                    <p class="text-[#1F4FD8] text-xs font-bold uppercase tracking-widest mb-4">Postion</p>
-                    <p class="text-slate-500 text-sm leading-relaxed">Managing partnerships with NGOs and schools to scale STEM access.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-[#F7F9FC]">
-        <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-16">ARIS in Action</h2>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="aspect-square bg-slate-200 rounded-2xl overflow-hidden hover:scale-95 transition-transform"><img src="g1.jpg" class="w-full h-full object-cover"></div>
-                <div class="aspect-square bg-slate-200 rounded-2xl overflow-hidden hover:scale-95 transition-transform"><img src="g2.png" class="w-full h-full object-cover"></div>
-                <div class="aspect-square bg-slate-200 rounded-2xl overflow-hidden hover:scale-95 transition-transform"><img src="g3.png" class="w-full h-full object-cover"></div>
-                <div class="aspect-square bg-slate-200 rounded-2xl overflow-hidden hover:scale-95 transition-transform"><img src="g4.png" class="w-full h-full object-cover"></div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-24 bg-white px-6">
-        <div class="max-w-4xl mx-auto bg-[#0A1A33] rounded-[50px] p-16 text-center text-white relative overflow-hidden">
-            <h3 class="text-3xl lg:text-5xl font-bold mb-8">Build Africa's <br> Engineering Hub with Us.</h3>
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="#" class="bg-[#2a30f5] text-white px-10 py-4 rounded-xl font-bold uppercase tracking-widest text-xs shadow-2xl hover:scale-105 transition-all">Partner With Us</a>
-                <a href="#" class="bg-white text-[#0A1A33] px-10 py-4 rounded-xl font-bold uppercase tracking-widest text-xs shadow-2xl hover:scale-105 transition-all">Contact ARIS</a>
-            </div>
-        </div>
-    </footer>
-
     <script>
+        // Start Lucide Icons
         lucide.createIcons();
-        const nav = document.getElementById('navbar');
-        window.onscroll = function() {
-            if (window.scrollY > 50) {
-                nav.classList.add('nav-scrolled', 'bg-white/95', 'backdrop-blur-md', 'shadow-md');
-                document.querySelectorAll('.nav-text').forEach(el => el.classList.replace('text-white', 'text-slate-600'));
-            } else {
-                nav.classList.remove('nav-scrolled', 'bg-white/95', 'backdrop-blur-md', 'shadow-md');
-                document.querySelectorAll('.nav-text').forEach(el => el.classList.replace('text-slate-600', 'text-white'));
-            }
-        };
+
+        // Mobile Menu Toggle Logic
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            const isHidden = menu.classList.toggle('hidden');
+            
+            // Switch between "menu" (three lines) and "x" (close)
+            icon.setAttribute('data-lucide', isHidden ? 'menu' : 'x');
+            lucide.createIcons();
+        }
+
+        // Slideshow Logic
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        setInterval(() => {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }, 6000);
     </script>
 </body>
 </html>
