@@ -3,37 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About ARIS | Engineering Africa's Future</title>
+    <title>Investors | ARIS - Engineering Scalable Impact</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        :root { --navy: #0A1A33; --royal: #1F4FD8; --gold: hsl(239, 84%, 26%); }
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; color: #0A1A33; }
-        h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+        :root { --navy: #050A15; --electric: #1F4FD8; }
+        body { font-family: 'Inter', sans-serif; background-color: white; color: var(--navy); scroll-behavior: smooth; }
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; letter-spacing: -0.02em; }
+        
+        .glass-dark { background: rgba(5, 10, 21, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        .metric-card { border: 1px solid #f1f5f9; transition: all 0.3s ease; background: white; }
+        .metric-card:hover { border-color: var(--electric); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(31, 79, 216, 0.05); }
 
-        /* LOGO & NAVIGATION */
-        .logo-bounding {
-            background: white; padding: 20px 30px; border-radius: 0 0 25px 25px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; border-top: none;
-            transition: all 0.4s ease; display: flex; align-items: center; gap: 20px; z-index: 100;
-        }
-        .logo-img { height: 100px; width: auto; object-fit: contain; }
-        .nav-scrolled .logo-bounding { padding: 10px 20px; }
-        .nav-scrolled .logo-img { height: 60px; }
-
-        /* TEAM & PRODUCT CARDS */
-        .card-shimmer {
-            background: white; border: 1px solid #F1F5F9; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .card-shimmer:hover { 
-            transform: translateY(-8px); border-color: #1F4FD8; 
-            box-shadow: 0 25px 50px -12px rgba(10, 26, 51, 0.1);
-        }
-
-        /* STAT COUNTER STYLE */
-        .stat-line { height: 2px; width: 0; background: #C9A24D; transition: width 1.5s ease-out; }
-        .group:hover .stat-line { width: 100%; }
+        .hero-gradient { background: linear-gradient(rgba(5, 10, 21, 0.8), rgba(5, 10, 21, 0.8)), url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
+        .cta-gradient { background: linear-gradient(rgba(10, 26, 51, 0.9), rgba(10, 26, 51, 0.9)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
 
         /* Mobile Menu State */
         #mobile-menu.hidden { display: none; }
@@ -41,82 +28,191 @@
 </head>
 <body class="antialiased">
 
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-24">
-            
-            <a href="home.html" class="logo-bounding self-start">
-                <img src="AIRS_LOGO.png" alt="ARIS Logo" class="logo-img">
-                <div class="hidden md:block border-l-2 border-slate-100 pl-4 text-[#0A1A33]">
-                    <span class="block text-xl font-bold tracking-tighter uppercase">About Us</span>
-                    <span class="text-[9px] uppercase tracking-[0.4em] font-bold text-[#0A1A33]">What We Do</span>
+    <nav class="fixed w-full z-50 glass-dark py-4 text-white">
+        <div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-16">
+            <a href="index.html" class="flex items-center gap-5 group">
+                <img src="AIRS_LOGO.png" alt="ARIS Logo" class="h-12 w-auto object-contain transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                <div class="flex flex-col border-l-2 border-white/10 pl-5 py-1">
+                    <span class="text-2xl font-bold tracking-tighter leading-none text-white group-hover:text-blue-400 transition-colors">ARIS</span>
+                    <span class="text-[8px] uppercase tracking-[0.5em] text-blue-500/80 mt-1.5 font-black whitespace-nowrap">Investor Relations</span>
                 </div>
             </a>
 
-            <div class="hidden lg:flex space-x-10 text-[11px] font-bold uppercase tracking-widest text-white nav-text">
-                <a href="home.html" class="hover:text-[#7c6bfa]">Home</a>
-                <a href="stem.html" class="hover:text-[#7c6bfa]">RoboStem</a>
-                <a href="solutions.html" class="hover:text-[#7c6bfa]">Solutions</a>
-                <a href="investor.html" class="hover:text-[#7c6bfa]">Investors</a>
+            <div class="hidden lg:flex items-center space-x-10 text-[10px] uppercase tracking-[0.3em] font-bold">
+                <a href="home.html" class="hover:text-blue-400">home</a>
+                <a href="about.html" class="hover:text-blue-400">about</a>
+                <a href="solutions.html" class="hover:text-blue-400">solution</a>
+                <button class="border border-blue-500 text-blue-500 px-6 py-2 rounded-full hover:bg-blue-500 hover:text-white transition-all">Investor Deck</button>
             </div>
 
-            <div class="flex items-center gap-4">
-                <a href="#contact" class="bg-[#1F4FD8] text-white px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-xl hover:bg-[#0A1A33] transition-all">
-                    <span class="hidden sm:inline">Partner With Us</span>
-                    <span class="sm:inline lg:hidden">Partner</span>
-                </a>
-
-                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 nav-text text-white focus:outline-none">
-                    <i id="menu-icon" data-lucide="menu"></i>
-                </button>
-            </div>
+            <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-white focus:outline-none">
+                <i id="menu-icon" data-lucide="menu"></i>
+            </button>
         </div>
 
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 absolute w-full top-24 left-0 shadow-2xl z-40">
-            <div class="flex flex-col p-8 space-y-6 text-[12px] font-bold uppercase tracking-[0.2em] text-slate-700">
-                <a href="home.html" onclick="toggleMobileMenu()">Home</a>
-                <a href="stem.html" onclick="toggleMobileMenu()">RoboStem</a>
-                <a href="solutions.html" onclick="toggleMobileMenu()">Solutions</a>
-                <a href="investor.html" onclick="toggleMobileMenu()">Investors</a>
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#050A15] border-b border-white/10 absolute w-full top-full left-0 shadow-2xl z-40">
+            <div class="flex flex-col p-8 space-y-6 text-[10px] font-bold uppercase tracking-[0.3em] text-white">
+                <a href="home.html" class="hover:text-blue-400">home</a>
+                <a href="about.html" class="hover:text-blue-400">about</a>
+                <a href="solutions.html" class="hover:text-blue-400">solution</a>
+                <div class="pt-4">
+                    <button class="w-full border border-blue-500 text-blue-500 px-6 py-4 rounded-full">Investor Deck</button>
+                </div>
             </div>
         </div>
     </nav>
 
-    <header class="relative pt-48 pb-32 bg-[#0A1A33] text-white overflow-hidden">
-        <div class="absolute right-0 top-0 w-1/2 h-full opacity-10 pointer-events-none">
-            <svg viewBox="0 0 100 100" class="w-full h-full stroke-current text-white"><circle cx="50" cy="50" r="40" fill="none" stroke-width="0.5" stroke-dasharray="2 2" /></svg>
+    <section class="relative min-h-screen flex items-center hero-gradient text-white pt-20">
+        <div class="max-w-7xl mx-auto px-8 relative z-10">
+            <div class="max-w-4xl reveal">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-blue-400">Q2 2026 Funding Round Open</span>
+                </div>
+                <h1 class="text-6xl md:text-8xl font-bold leading-tight mb-8">
+                    Invest in the Future of <br> <span class="text-blue-500 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Intelligent Innovation.</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-300 font-light max-w-2xl mb-12">
+                    ARIS is building a scalable ecosystem of robotics, smart systems, and technical education to solve real-world problems in emerging markets.
+                </p>
+                <div class="flex flex-wrap gap-6">
+                    <button class="bg-blue-600 px-10 py-5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20">Download Investor Deck</button>
+                    <button class="border border-white/20 px-10 py-5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-white/10 transition-all">Partner With Us</button>
+                </div>
+            </div>
         </div>
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <h1 class="text-4xl lg:text-7xl font-bold mb-8 leading-tight">
-                Engineering <br> <span class="text-[#2a30f5]">African Solutions.</span>
-            </h1>
-            <p class="text-blue-100/60 text-xl max-w-2xl leading-relaxed font-light">
-                Apex Robotics & Intelligence Solutions (ARIS) is an engineering-driven organization focused on robotics, STEM education, and intelligent systems, delivering practical, hands-on solutions for Africa.
-            </p>
-        </div>
-    </header>
+    </section>
 
     <script>
         lucide.createIcons();
 
-        // SCROLL SCRIPT (Syncs nav text and hamburger icon)
-        const nav = document.getElementById('navbar');
-        window.onscroll = function() {
-            if (window.scrollY > 50) {
-                nav.classList.add('nav-scrolled', 'bg-white/95', 'backdrop-blur-md', 'shadow-md');
-                document.querySelectorAll('.nav-text').forEach(el => {
-                    el.classList.remove('text-white');
-                    el.classList.add('text-slate-600');
-                });
-            } else {
-                nav.classList.remove('nav-scrolled', 'bg-white/95', 'backdrop-blur-md', 'shadow-md');
-                document.querySelectorAll('.nav-text').forEach(el => {
-                    el.classList.remove('text-slate-600');
-                    el.classList.add('text-white');
-                });
-            }
-        };
+        // REVEAL ANIMATION
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // MOBILE MENU TOGGLE LOGIC
+        // MOBILE MENU TOGGLE
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            const isHidden = menu.classList.toggle('hidden');
+            
+            // Swap icon between "menu" and "x"
+            icon.setAttribute('data-lucide', isHidden ? 'menu' : 'x');
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investors | ARIS - Engineering Scalable Impact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root { --navy: #050A15; --electric: #1F4FD8; }
+        body { font-family: 'Inter', sans-serif; background-color: white; color: var(--navy); scroll-behavior: smooth; }
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; letter-spacing: -0.02em; }
+        
+        .glass-dark { background: rgba(5, 10, 21, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        .metric-card { border: 1px solid #f1f5f9; transition: all 0.3s ease; background: white; }
+        .metric-card:hover { border-color: var(--electric); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(31, 79, 216, 0.05); }
+
+        .hero-gradient { background: linear-gradient(rgba(5, 10, 21, 0.8), rgba(5, 10, 21, 0.8)), url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
+        .cta-gradient { background: linear-gradient(rgba(10, 26, 51, 0.9), rgba(10, 26, 51, 0.9)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
+
+        /* Mobile Menu State */
+        #mobile-menu.hidden { display: none; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-50 glass-dark py-4 text-white">
+        <div class="max-w-7xl mx-auto px-8 flex justify-between items-center h-16">
+            <a href="index.html" class="flex items-center gap-5 group">
+                <img src="AIRS_LOGO.png" alt="ARIS Logo" class="h-12 w-auto object-contain transition-all duration-500 group-hover:scale-105 group-hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                <div class="flex flex-col border-l-2 border-white/10 pl-5 py-1">
+                    <span class="text-2xl font-bold tracking-tighter leading-none text-white group-hover:text-blue-400 transition-colors">ARIS</span>
+                    <span class="text-[8px] uppercase tracking-[0.5em] text-blue-500/80 mt-1.5 font-black whitespace-nowrap">Investor Relations</span>
+                </div>
+            </a>
+
+            <div class="hidden lg:flex items-center space-x-10 text-[10px] uppercase tracking-[0.3em] font-bold">
+                <a href="home.html" class="hover:text-blue-400">home</a>
+                <a href="about.html" class="hover:text-blue-400">about</a>
+                <a href="solutions.html" class="hover:text-blue-400">solution</a>
+                <button class="border border-blue-500 text-blue-500 px-6 py-2 rounded-full hover:bg-blue-500 hover:text-white transition-all">Investor Deck</button>
+            </div>
+
+            <button onclick="toggleMobileMenu()" class="lg:hidden p-2 text-white focus:outline-none">
+                <i id="menu-icon" data-lucide="menu"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#050A15] border-b border-white/10 absolute w-full top-full left-0 shadow-2xl z-40">
+            <div class="flex flex-col p-8 space-y-6 text-[10px] font-bold uppercase tracking-[0.3em] text-white">
+                <a href="home.html" class="hover:text-blue-400">home</a>
+                <a href="about.html" class="hover:text-blue-400">about</a>
+                <a href="solutions.html" class="hover:text-blue-400">solution</a>
+                <div class="pt-4">
+                    <button class="w-full border border-blue-500 text-blue-500 px-6 py-4 rounded-full">Investor Deck</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative min-h-screen flex items-center hero-gradient text-white pt-20">
+        <div class="max-w-7xl mx-auto px-8 relative z-10">
+            <div class="max-w-4xl reveal">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-blue-400">Q2 2026 Funding Round Open</span>
+                </div>
+                <h1 class="text-6xl md:text-8xl font-bold leading-tight mb-8">
+                    Invest in the Future of <br> <span class="text-blue-500 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Intelligent Innovation.</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-300 font-light max-w-2xl mb-12">
+                    ARIS is building a scalable ecosystem of robotics, smart systems, and technical education to solve real-world problems in emerging markets.
+                </p>
+                <div class="flex flex-wrap gap-6">
+                    <button class="bg-blue-600 px-10 py-5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20">Download Investor Deck</button>
+                    <button class="border border-white/20 px-10 py-5 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-white/10 transition-all">Partner With Us</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        lucide.createIcons();
+
+        // REVEAL ANIMATION
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // MOBILE MENU TOGGLE
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('menu-icon');
