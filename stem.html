@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs & Kits | ARIS Robotics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root { --navy: #0A1A33; --royal: #1F4FD8; --gold: #C9A24D; }
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #0A1A33; }
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+
+        /* LOGO & NAV SYSTEM */
+        .logo-bounding {
+            background: white; padding: 20px 30px; border-radius: 0 0 25px 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1); border: 1px solid #e2e8f0; border-top: none;
+            transition: all 0.4s ease; display: flex; align-items: center; gap: 20px; z-index: 100;
+        }
+        .logo-img { height: 100px; width: auto; object-fit: contain; }
+        .nav-scrolled .logo-bounding { padding: 10px 20px; }
+        .nav-scrolled .logo-img { height: 60px; }
+
+        /* VIDEO PLACEHOLDER STYLING */
+        .video-container {
+            position: relative; background: #000; border-radius: 24px; overflow: hidden;
+            aspect-ratio: 16 / 9; box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+        .play-button {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 80px; height: 80px; background: white; border-radius: 50%;
+            display: flex; items-center; justify-content: center; cursor: pointer;
+            transition: all 0.3s ease; z-index: 10;
+        }
+        .play-button:hover { scale: 1.1; background: #C9A24D; color: white; }
+
+        /* KIT CARDS */
+        .kit-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .kit-card:hover { transform: translateY(-15px); }
+        
+        /* SECTION DIVIDERS */
+        .section-curve { clip-path: ellipse(150% 100% at 50% 100%); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-24">
+            <div class="logo-bounding self-start">
+                <img src="AIRS_LOGO.png" alt="ARIS Logo" class="logo-img">
+                <div class="hidden md:block border-l-2 border-slate-100 pl-4">
+                    <span class="block text-xl font-bold text-[#143ae3S]">ARIS</span>
+                    <span class="text-[9px] uppercase tracking-[0.4em] font-bold text-[#0A1A33]">ROBOSTEM</span>
+                </div>
+            </div>
+            <div class="hidden lg:flex space-x-10 text-[11px] font-bold uppercase tracking-widest text-white nav-text">
+                <a href="home.html" class="hover:text-[#143ae3]">HOME</a>
+                <a href="about.html" class="hover:text-[#143ae3]">ABOUT</a>
+                <a href="solutions.html" class="hover:text-[#143ae3]">solutions</a>
+                <a href="investors" class="hover:text-[#7c6bfa]">investors</a>
+            </div>
+            <a href="#register" class="bg-[#150875] text-white px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-xl">Enroll Now</a>
+        </div>
+    </nav>
+
+    <header class="relative h-[80vh] flex items-center bg-[#0A1A33] overflow-hidden text-white">
+        <div class="absolute inset-0 opacity-30">
+            <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover">
+        </div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="lg:w-2/3">
+                <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
+                    Hands-On Robotics & STEM <br> For <span class="text-[#15039e]">Tomorrow's Leaders.</span>
+                </h1>
+                <p class="text-blue-100/70 text-xl font-light mb-10 max-w-xl">
+                    We don't just teach theory; we give students the tools to build, program, and solve real-world problems through practical engineering.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#register" class="bg-[#15068a] px-10 py-4 rounded-xl font-bold uppercase tracking-widest text-xs">Register With Us</a>
+                    <a href="#kits" class="bg-white/10 backdrop-blur-md px-10 py-4 rounded-xl font-bold uppercase tracking-widest text-xs border border-white/20">Explore Our Kits</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="robotics" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-[#1F4FD8] font-bold text-sm uppercase tracking-[0.4em] mb-4">The Discipline</h2>
+                <h3 class="text-4xl font-bold text-[#0A1A33] mb-6">What is Robotics?</h3>
+                <p class="text-slate-600 mb-8 leading-relaxed text-lg">
+                    Robotics is the intersection of electronics, coding, and mechanical engineering. It's about giving machines a "brain" to perceive the world and "limbs" to interact with it. Our program focuses on:
+                </p>
+                <div class="grid grid-cols-2 gap-6 mb-8">
+                    <div class="flex gap-4">
+                        <i data-lucide="cpu" class="text-[#C9A24D]"></i>
+                        <span class="font-bold text-sm">Logic & Coding</span>
+                    </div>
+                    <div class="flex gap-4">
+                        <i data-lucide="cog" class="text-[#C9A24D]"></i>
+                        <span class="font-bold text-sm">Automation</span>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="video-container group relative overflow-hidden rounded-xl shadow-lg">
+
+  <!-- Video -->
+  <video
+    class="w-full h-full object-cover opacity-70"
+    autoplay
+    muted
+    loop
+    playsinline
+  >
+    <source src="robot_in_action.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Play Button Overlay -->
+  <div class="play-button absolute inset-0 flex items-center justify-center pointer-events-none">
+    <div class="bg-white/80 rounded-full p-4 shadow-lg group-hover:scale-110 transition">
+      <i data-lucide="play" class="w-6 h-6 text-blue-700"></i>
+    </div>
+  </div>
+
+  <!-- Caption -->
+  <div class="absolute bottom-6 left-6 text-white text-sm font-bold uppercase tracking-widest">
+    Demo: Robot in Action
+  </div>
+
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="stem" class="py-24 bg-[#F7F9FC]">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+
+    <div class="order-2 lg:order-1 video-container relative rounded-xl overflow-hidden shadow-lg">
+
+      <video
+        class="w-full h-full object-cover opacity-80"
+        autoplay
+        muted
+        loop
+        playsinline
+      >
+        <source src="vid.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- Optional Play Icon Overlay -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div class="bg-white/80 rounded-full p-4 shadow-lg">
+          <i data-lucide="play" class="w-6 h-6 text-blue-700"></i>
+        </div>
+      </div>
+            </div>
+            <div class="order-1 lg:order-2">
+                <h2 class="text-[#15068a] font-bold text-sm uppercase tracking-[0.4em] mb-4">The Framework</h2>
+                <h3 class="text-4xl font-bold text-[#0A1A33] mb-6">What is STEM?</h3>
+                <p class="text-slate-600 mb-8 leading-relaxed text-lg">
+                    STEM represents Science, Technology, Engineering, and Mathematics. Rather than learning them as separate subjects, we teach them as a unified language for problem-solving.
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm">
+                        <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center font-bold">S</span>
+                        <span class="text-sm font-bold">Science: Discovering why things happen.</span>
+                    </li>
+                    <li class="flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm">
+                        <span class="w-8 h-8 bg-green-100 text-green-600 rounded-lg flex items-center justify-center font-bold">T</span>
+                        <span class="text-sm font-bold">Technology: Using tools to solve tasks.</span>
+                    </li>
+                    <li class="flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm">
+                        <span class="w-8 h-8 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center font-bold">E</span>
+                        <span class="text-sm font-bold">Engineering: Designing the solution.</span>
+                    </li>
+                    <li class="flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm">
+                        <span class="w-8 h-8 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center font-bold">M</span>
+                        <span class="text-sm font-bold">Mathematics: Calculating for precision.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white text-center">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-16">The Learning Journey</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="w-16 h-16 bg-slate-50 text-[#1F4FD8] rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold border border-slate-100">1</div>
+                    <h4 class="font-bold mb-2">Conceptualize</h4>
+                    <p class="text-xs text-slate-400">Understanding the core logic and physics.</p>
+                </div>
+                <div>
+                    <div class="w-16 h-16 bg-slate-50 text-[#1F4FD8] rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold border border-slate-100">2</div>
+                    <h4 class="font-bold mb-2">Build</h4>
+                    <p class="text-xs text-slate-400">Hands-on assembly of hardware and circuits.</p>
+                </div>
+                <div>
+                    <div class="w-16 h-16 bg-slate-50 text-[#1F4FD8] rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold border border-slate-100">3</div>
+                    <h4 class="font-bold mb-2">Program</h4>
+                    <p class="text-xs text-slate-400">Writing the logic to bring the build to life.</p>
+                </div>
+                <div>
+                    <div class="w-16 h-16 bg-slate-50 text-[#1F4FD8] rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold border border-slate-100">4</div>
+                    <h4 class="font-bold mb-2">Iterate</h4>
+                    <p class="text-xs text-slate-400">Testing, failing, and improving the design.</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="kits" class="py-24 bg-[#0A1A33] text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-[#5440f5] font-bold text-xs uppercase tracking-[0.4em]">ARIS Proprietary Hardware</span>
+                <h2 class="text-4xl font-bold mt-4">The STEM & Robotics Kits</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="kit-card bg-white/5 border border-white/10 rounded-[40px] p-8">
+                    <div class="aspect-square rounded-3xl bg-white/5 mb-8 flex items-center justify-center overflow-hidden">
+                        <img src="AIRS_LOGO.png" alt="RoboStart" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-2xl font-bold">RoboStart Kit</h4>
+                        <span class="bg-green-500/20 text-green-400 text-[9px] font-bold px-3 py-1 rounded-full">BEGINNER</span>
+                    </div>
+                    <p class="text-blue-100/40 text-sm mb-8">Focuses on visual block-based programming. Safe, solderless, and perfect for early curious minds.</p>
+                    <div class="space-y-3 mb-10 text-[10px] uppercase font-bold tracking-widest text-slate-400">
+                        <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 text-green-500"></i> Ages 8-12</div>
+                        <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 text-green-500"></i> Scratch/Block Coding</div>
+                    </div>
+                    <button class="w-full py-4 rounded-xl border border-white/10 hover:bg-[#C9A24D] transition-all font-bold text-[10px] uppercase tracking-widest">Learn More</button>
+                </div>
+
+                <div class="kit-card bg-[#1F4FD8] rounded-[40px] p-8 shadow-2xl shadow-blue-900/40">
+                    <div class="aspect-square rounded-3xl bg-white/10 mb-8 flex items-center justify-center overflow-hidden">
+                        <img src="AIRS_LOGO.png" alt="RoboBuild" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-2xl font-bold">RoboBuild Kit</h4>
+                        <span class="bg-white/20 text-white text-[9px] font-bold px-3 py-1 rounded-full">INTERMEDIATE</span>
+                    </div>
+                    <p class="text-white/70 text-sm mb-8">Deep dive into C++ and electronics. Features ultrasonic sensors, motor drivers, and logic arrays.</p>
+                    <div class="space-y-3 mb-10 text-[10px] uppercase font-bold tracking-widest text-white/50">
+                        <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 text-white"></i> Ages 13-16</div>
+                        <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 text-white"></i> C++ / Arduino Logic</div>
+                    </div>
+                    <button class="w-full py-4 rounded-xl bg-white text-[#1F4FD8] font-bold text-[10px] uppercase tracking-widest shadow-xl">Most Popular</button>
+                </div>
+
+                <div class="kit-card bg-white/5 border border-white/10 rounded-[40px] p-8">
+                    <div class="aspect-square rounded-3xl bg-white/5 mb-8 flex items-center justify-center overflow-hidden">
+                        <img src="AIRS_LOGO.png" alt="RoboPro" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-2xl font-bold">RoboPro Kit</h4>
+                        <span class="bg-purple-500/20 text-purple-400 text-[9px] font-bold px-3 py-1 rounded-full">ADVANCED</span>
+                    </div>
+                    <p class="text-blue-100/40 text-sm mb-8">Professional grade IoT and Embedded Systems. Build autonomous vehicles and AI-linked hardware.</p>
+                    <div class="space-y-3 mb-10 text-[10px] uppercase font-bold tracking-widest text-slate-400">
+                        <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 text-purple-500"></i> Senior High & Up</div>
+                        <div class="flex items-center gap-2"><i data-lucide="check" class="w-4 text-purple-500"></i> AI & Python Integration</div>
+                    </div>
+                    <button class="w-full py-4 rounded-xl border border-white/10 hover:bg-[#C9A24D] transition-all font-bold text-[10px] uppercase tracking-widest">View Specs</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <section id="register" class="py-24 bg-white px-6">
+        <div class="max-w-4xl mx-auto bg-slate-50 rounded-[50px] overflow-hidden grid lg:grid-cols-2 shadow-2xl border border-slate-100">
+            <div class="bg-[#0A1A33] p-12 text-white flex flex-col justify-center">
+                <h3 class="text-3xl font-bold mb-6">Start Your Engineering Journey Today.</h3>
+                <p class="text-blue-100/40 text-sm mb-8 leading-relaxed">Enroll in our 2026 program or request a kit demonstration for your school. Our team will contact you within 24 hours.</p>
+                <div class="space-y-4">
+                    <div class="flex gap-4 items-center">
+                        <i data-lucide="phone" class="text-[#C9A24D] w-5"></i>
+                        <span class="text-sm font-semibold">+233 53 528 8103</span>
+                    </div>
+                </div>
+            </div>
+            <div class="p-12">
+                <form class="space-y-4">
+                    <input type="text" placeholder="Full Name" class="w-full p-4 rounded-xl border border-slate-200 text-sm focus:border-[#C9A24D] outline-none">
+                    <input type="email" placeholder="Email Address" class="w-full p-4 rounded-xl border border-slate-200 text-sm focus:border-[#C9A24D] outline-none">
+                    <select class="w-full p-4 rounded-xl border border-slate-200 text-sm text-slate-400 outline-none">
+                        <option>Choose Program Interest</option>
+                        <option>RoboStart (Beginner)</option>
+                        <option>RoboBuild (Intermediate)</option>
+                        <option>RoboPro (Advanced)</option>
+                    </select>
+                    <button class="w-full py-5 rounded-xl bg-[#1F4FD8] text-white font-bold text-[10px] uppercase tracking-widest shadow-lg hover:bg-[#0A1A33] transition-colors">Submit Registration</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#0A1A33] py-12 text-center border-t border-white/5">
+        <img src="logo.png" alt="ARIS" class="h-10 mx-auto mb-6 opacity-30 brightness-0 invert">
+        <p class="text-slate-500 text-[10px] uppercase tracking-[0.4em] font-bold">&copy; 2026 Apex Robotics & Intelligence Solutions</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const nav = document.getElementById('navbar');
+        window.onscroll = function() {
+            if (window.scrollY > 50) {
+                nav.classList.add('nav-scrolled', 'bg-white/95', 'backdrop-blur-md', 'shadow-md');
+                document.querySelectorAll('.nav-text').forEach(el => el.classList.replace('text-white', 'text-slate-600'));
+            } else {
+                nav.classList.remove('nav-scrolled', 'bg-white/95', 'backdrop-blur-md', 'shadow-md');
+                document.querySelectorAll('.nav-text').forEach(el => el.classList.replace('text-slate-600', 'text-white'));
+            }
+        };
+    </script>
+</body>
+</html>

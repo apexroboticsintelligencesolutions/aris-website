@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARIS | Apex Robotics & Intelligence Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root { --space: #020617; --electric: #2563eb; --slate-glass: rgba(15, 23, 42, 0.8); }
+        body { font-family: 'Inter', sans-serif; background-color: var(--space); color: #fff; scroll-behavior: smooth; }
+        
+        .glass-nav { background: var(--slate-glass); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        /* Apple-style Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        /* Hover Glow for Cards */
+        .tech-card {
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .tech-card:hover {
+            background: rgba(30, 41, 59, 0.5);
+            border-color: var(--electric);
+            box-shadow: 0 0 30px rgba(37, 99, 235, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-50 glass-nav py-4 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-8 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-4 group">
+            <div class="relative">
+                <img src="AIRS_LOGO.png" alt="ARIS Logo" class="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-110">
+                <div class="absolute inset-0 bg-blue-500/20 blur-xl rounded-full -z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+            
+            <div class="flex flex-col">
+                <span class="text-xl font-bold tracking-[0.2em] leading-none uppercase">ARIS</span>
+                <span class="text-[8px] font-bold tracking-[0.4em] text-blue-500 uppercase mt-1">Apex Robotics & Intelligence</span>
+            </div>
+        </a>
+
+        <div class="hidden lg:flex space-x-10 text-[10px] uppercase tracking-[0.3em] font-bold text-slate-400 items-center">
+            <a href="home.html" class="hover:text-white transition-colors">HOME</a>
+            <a href="about.html" class="hover:text-white transition-colors">ABOUT</a>
+            <a href="stem.html" class="hover:text-white transition-colors">ROBOSTEM</a>
+            <a href="investor.html" class="hover:text-white transition-colors">INVESTORS</a>
+            </a>
+        </div>
+    </div>
+</nav>
+
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?q=80&w=2070" class="w-full h-full object-cover opacity-30 grayscale">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-8">
+            <div class="max-w-3xl reveal">
+                <h1 class="text-6xl md:text-8xl font-bold leading-[1.05] mb-8 gradient-text">
+                    The Edge of <br> Intelligence.
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-400 font-light mb-12 leading-relaxed">
+                    ARIS designs and manufactures high-performance embedded systems, autonomous robotics, and IoT infrastructure tailored for the African landscape.
+                </p>
+                <div class="flex gap-6">
+                    <button class="bg-blue-600 hover:bg-blue-700 px-10 py-4 rounded-full font-bold text-xs uppercase tracking-widest transition-all shadow-xl shadow-blue-900/20">Our Ecosystem</button>
+                    <button class="border border-slate-700 hover:bg-white/5 px-10 py-4 rounded-full font-bold text-xs uppercase tracking-widest transition-all">Download Report</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="engineering" class="py-32 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="reveal">
+                    <h2 class="text-blue-500 font-bold text-xs uppercase tracking-[0.4em] mb-6">Core Engineering</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold mb-8">Hardware-Software <br> Convergence.</h3>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-10">
+                        We don't rely on off-the-shelf consumer products. We build our own PCB stacks using **ESP32-S3** and **STM32** architectures, optimized for low-power consumption and long-range connectivity (LoRaWAN).
+                    </p>
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="text-blue-500"><i data-lucide="layers"></i></div>
+                            <div>
+                                <h4 class="font-bold mb-2">RTOS Integration</h4>
+                                <p class="text-sm text-slate-500">Real-Time Operating Systems ensure our robotics handle multi-threaded sensor data with microsecond precision.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="text-blue-500"><i data-lucide="network"></i></div>
+                            <div>
+                                <h4 class="font-bold mb-2">Mesh Networking</h4>
+                                <p class="text-sm text-slate-500">Self-healing networks that allow smart home and agri-devices to communicate without relying on unstable internet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal relative p-12 bg-slate-900 rounded-[60px] border border-white/5 overflow-hidden group">
+                    <div class="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity" style="background-image: radial-gradient(circle, #2563eb 1px, transparent 1px); background-size: 20px 20px;"></div>
+                    <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=2069" class="rounded-3xl shadow-2xl relative z-10" alt="PCB Engineering">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="solutions" class="py-40">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-32 reveal">
+                <h3 class="text-5xl md:text-6xl font-bold mb-6">Practical Solutions.</h3>
+                <p class="text-slate-400 max-w-2xl mx-auto">Addressing the continent's most pressing infrastructure challenges through intelligent design.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                <div class="tech-card p-12 rounded-[50px] flex flex-col justify-between reveal">
+                    <div>
+                        <div class="bg-blue-600/10 w-16 h-16 rounded-2xl flex items-center justify-center text-blue-500 mb-10">
+                            <i data-lucide="wind" class="w-8 h-8"></i>
+                        </div>
+                        <h4 class="text-3xl font-bold mb-4">Autonomous Fan Regulation</h4>
+                        <p class="text-slate-400 mb-8 leading-relaxed">
+                            Our system uses DHT22 thermal sensors and PID control algorithms to modulate AC induction motors. By optimizing RPM based on ambient heat, we eliminate 40% of peak-load energy surge.
+                        </p>
+                    </div>
+                    <ul class="text-xs space-y-3 text-slate-500 uppercase tracking-widest font-bold">
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-blue-500"></i> No-Manual Control</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-blue-500"></i> Voltage Surge Protection</li>
+                        <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-blue-500"></i> Retrofit Compatible</li>
+                    </ul>
+                </div>
+
+                <div class="tech-card p-12 rounded-[50px] bg-slate-900 reveal border-none">
+                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=2070" class="w-full h-full object-cover rounded-[30px] opacity-70" alt="Smart Home">
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 tech-card p-12 rounded-[50px] reveal bg-gradient-to-br from-slate-900 to-slate-950">
+                    <h4 class="text-3xl font-bold mb-4">Agri-Monitor V2 (Experimental)</h4>
+                    <p class="text-slate-400 mb-10">
+                        Localized soil analysis nodes that transmit NPK, moisture, and pH levels via LoRa to a central ARIS-OS Hub. This allows for precision irrigation, saving water while increasing crop yield.
+                    </p>
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="text-center p-6 bg-white/5 rounded-3xl">
+                            <p class="text-2xl font-black text-white">40%</p>
+                            <p class="text-[10px] text-slate-500 uppercase">Yield Increase</p>
+                        </div>
+                        <div class="text-center p-6 bg-white/5 rounded-3xl">
+                            <p class="text-2xl font-black text-white">10km</p>
+                            <p class="text-[10px] text-slate-500 uppercase">Wireless Range</p>
+                        </div>
+                        <div class="text-center p-6 bg-white/5 rounded-3xl">
+                            <p class="text-2xl font-black text-white">2yr</p>
+                            <p class="text-[10px] text-slate-500 uppercase">Battery Life</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-card p-12 rounded-[50px] reveal flex flex-col justify-center">
+                    <i data-lucide="cpu" class="w-12 h-12 text-blue-500 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4">ARIS-OS Hub</h4>
+                    <p class="text-slate-500 text-sm">The brains of the ecosystem. A custom Linux-based edge gateway that handles all local data processing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-40 bg-white text-slate-950">
+        <div class="max-w-7xl mx-auto px-8 text-center reveal">
+            <h2 class="text-5xl md:text-7xl font-bold mb-10 tracking-tighter">Engineering Africa's <br> Autonomous Future.</h2>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <button class="bg-blue-600 text-white px-12 py-5 rounded-full font-bold uppercase tracking-widest text-xs hover:scale-105 transition-all">Partner With ARIS</button>
+                <button class="border border-slate-200 px-12 py-5 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-slate-50 transition-all">Contact Engineering</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 border-t border-white/5 px-8 bg-slate-950">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+            <div class="col-span-2">
+                <h4 class="text-2xl font-bold mb-6 italic">ARIS</h4>
+                <p class="text-slate-500 text-sm max-w-sm">Apex Robotics & Intelligence Solutions is a registered technology firm specializing in embedded systems and high-precision robotics kits for education and industry.</p>
+            </div>
+            <div>
+                <h5 class="text-[10px] uppercase tracking-widest text-white font-bold mb-6">Technology</h5>
+                <ul class="text-sm text-slate-500 space-y-4">
+                    <li><a href="#" class="hover:text-blue-500 transition-colors">RoboBuild Series</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition-colors">Edge Computing</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition-colors">IoT Mesh</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="text-[10px] uppercase tracking-widest text-white font-bold mb-6">Connect</h5>
+                <ul class="text-sm text-slate-500 space-y-4">
+                    <li><a href="#" class="hover:text-blue-500 transition-colors">LinkedIn</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition-colors">GitHub</a></li>
+                    <li><a href="#" class="hover:text-blue-500 transition-colors">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
