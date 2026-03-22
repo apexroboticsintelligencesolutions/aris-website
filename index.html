@@ -26,16 +26,17 @@
             align-items: center;
             gap: 12px;
             z-index: 60;
+            transition: opacity 0.2s ease;
         }
+        
+        .logo-bounding:hover { opacity: 0.9; }
 
         .logo-img {
-            height: 80px; /* Default Desktop Height */
+            height: 80px; 
             width: auto;
             object-fit: contain;
-            transition: height 0.3s ease;
         }
 
-        /* Responsive Logo Adjustments */
         @media (max-width: 768px) {
             .logo-img { height: 45px; }
             .logo-bounding { padding: 8px 15px; }
@@ -50,18 +51,7 @@
         .slide.active { opacity: 0.4; transform: scale(1); }
         .hero-overlay { background: linear-gradient(to right, #0A1A33 30%, rgba(10, 26, 51, 0.4) 100%); }
 
-        .feature-card:hover { transform: translateY(-5px); border-color: #1F4FD8; }
-
-        /* Mobile Menu Animation */
-        #mobile-menu {
-            transition: all 0.3s ease-in-out;
-            transform-origin: top;
-        }
-        #mobile-menu.hidden {
-            display: none;
-            transform: scaleY(0);
-            opacity: 0;
-        }
+        #mobile-menu.hidden { display: none; }
     </style>
 </head>
 <body class="antialiased">
@@ -69,13 +59,13 @@
     <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center h-20">
             
-            <div class="logo-bounding self-start">
+            <a href="index.html" class="logo-bounding self-start">
                 <img src="AIRS_LOGO.png" alt="ARIS Logo" class="logo-img">
-                <div class="hidden md:block border-l border-gray-200 pl-3">
+                <div class="hidden md:block border-l border-gray-200 pl-3 text-left">
                     <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-600 block leading-tight">Apex Robotics &</span>
                     <span class="text-[9px] uppercase tracking-tighter text-slate-400">Intelligence Solutions</span>
                 </div>
-            </div>
+            </a>
 
             <div class="hidden lg:flex space-x-8 text-[11px] font-bold uppercase tracking-widest text-slate-600">
                 <a href="about.html" class="hover:text-blue-600 transition">About</a>
@@ -98,10 +88,10 @@
 
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 absolute w-full top-20 left-0 shadow-2xl">
             <div class="flex flex-col p-8 space-y-6 text-[12px] font-bold uppercase tracking-[0.2em] text-slate-700">
-                <a href="about.html" class="border-b border-gray-50 pb-2">About</a>
-                <a href="stem.html" class="border-b border-gray-50 pb-2">ROBOSTEM</a>
-                <a href="solutions.html" class="border-b border-gray-50 pb-2">Solutions</a>
-                <a href="#investors" class="border-b border-gray-50 pb-2">Investors</a>
+                <a href="about.html">About</a>
+                <a href="stem.html">ROBOSTEM</a>
+                <a href="solutions.html">Solutions</a>
+                <a href="#investors">Investors</a>
             </div>
         </div>
     </nav>
@@ -195,21 +185,16 @@
     </footer>
 
     <script>
-        // Initialize Icons
         lucide.createIcons();
 
-        // Mobile Menu Toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('menu-icon');
             const isHidden = menu.classList.toggle('hidden');
-            
-            // Toggle Icon between Menu and X
             icon.setAttribute('data-lucide', isHidden ? 'menu' : 'x');
             lucide.createIcons();
         }
 
-        // SLIDESHOW logic
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
         setInterval(() => {
@@ -218,7 +203,6 @@
             slides[currentSlide].classList.add('active');
         }, 6000);
 
-        // COUNTERS logic
         const counters = document.querySelectorAll('.counter');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
