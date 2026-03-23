@@ -31,11 +31,22 @@
             border-color: var(--electric);
             box-shadow: 0 0 30px rgba(37, 99, 235, 0.1);
         }
+
+        /* MOBILE MENU STYLES */
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        }
+        #mobile-menu.active {
+            max-height: 500px;
+            transition: max-height 0.5s ease-in-out;
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="fixed w-full z-50 glass-nav py-4 transition-all duration-300">
+<nav class="fixed w-full z-50 glass-nav py-4 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-8 flex justify-between items-center">
         <a href="index.html" class="flex items-center gap-4 group">
             <div class="relative">
@@ -54,7 +65,20 @@
             <a href="about.html" class="hover:text-white transition-colors">ABOUT</a>
             <a href="stem.html" class="hover:text-white transition-colors">ROBOSTEM</a>
             <a href="investor.html" class="hover:text-white transition-colors">INVESTORS</a>
-            </a>
+        </div>
+
+        <button id="menu-toggle" class="lg:hidden text-white tech-card p-2 rounded-lg">
+            <i data-lucide="menu" id="menu-icon"></i>
+        </button>
+    </div>
+
+    <div id="mobile-menu" class="lg:hidden bg-slate-950/95 border-b border-white/5">
+        <div class="flex flex-col p-8 space-y-6 text-[10px] uppercase tracking-[0.4em] font-bold text-slate-400">
+            <a href="index.html" class="hover:text-white transition-colors">HOME</a>
+            <a href="about.html" class="hover:text-white transition-colors">ABOUT</a>
+            <a href="stem.html" class="hover:text-white transition-colors">ROBOSTEM</a>
+            <a href="investor.html" class="hover:text-white transition-colors">INVESTORS</a>
+            <button class="bg-blue-600 text-white px-6 py-3 rounded-full text-[8px] self-start">PARTNER WITH US</button>
         </div>
     </div>
 </nav>
@@ -212,6 +236,20 @@
 
     <script>
         lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const isOpen = mobileMenu.classList.contains('active');
+            
+            // Toggle icon between menu and x
+            menuIcon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
+            lucide.createIcons();
+        });
 
         // Scroll Reveal
         const observer = new IntersectionObserver((entries) => {
